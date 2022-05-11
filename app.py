@@ -23,6 +23,11 @@ sheet_url = st.secrets["private_gsheets_url"]
 rows = run_query(f'SELECT * FROM "{sheet_url}"')
 
 st.header("SMTE 6/11 Homework List")
+with st.sidebar:
+    Name = st.selecbox(
+        "ชื่อ-นามสกุล",
+        ("", "")
+    )
 # Print results.
 for row in rows:
     st.write(f"{row.name} has a :{row.pet}:")
